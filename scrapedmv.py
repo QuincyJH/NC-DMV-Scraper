@@ -370,7 +370,7 @@ def extract_times_for_all_locations_firefox(
             return {}
 
         try:
-            first_layer_button_xpath = f"//div[contains(@class, 'QflowObjectItem') and .//div[contains(text(), '{APPOINTMENT_TYPE}')]]"
+            first_layer_button_xpath = f"//div[contains(@class, 'QflowObjectItem') and contains(normalize-space(.), '{APPOINTMENT_TYPE}')]"
             time.sleep(2)
             first_layer_button = WebDriverWait(driver, 50).until(
                 EC.element_to_be_clickable((By.XPATH, first_layer_button_xpath))
